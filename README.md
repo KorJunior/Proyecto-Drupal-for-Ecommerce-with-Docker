@@ -48,7 +48,7 @@ docker-compose -f docker-compose-forja.yml up -d
 Esto iniciará los siguientes servicios:
 
 - **Drupal** en `http://localhost:8080`
-- **phpMyAdmin** en `http://localhost:8083`
+- **phpMyAdmin** en `http://localhost:8081`
 
 ### 4. Configuración de la Base de Datos
 
@@ -59,7 +59,7 @@ La configuración de la base de datos es la siguiente:
 - **Usuario:** `drupal`
 - **Contraseña:** `drupal`
 
-Puedes acceder a phpMyAdmin en `http://localhost:8083` con las mismas credenciales.
+Puedes acceder a phpMyAdmin en `http://localhost:8081` con las mismas credenciales.
 
 ## Detalles Técnicos
 
