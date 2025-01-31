@@ -1,0 +1,45 @@
+services:
+  drupal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: forja-drupal
+    ports:
+      - "8080:80"
+    environment:
+      - DRUPAL_DB_HOST=forja-db
+      - DRUPAL_DB_NAME=drupal
+      - DRUPAL_DB_USER=drupal
+      - DRUPAL_DB_PASSWORD=drupal
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: forja-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: drupal
+      MYSQL_DATABASE: drupal
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: drupal
+    volumes:
+      - forja-db-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: forja-phpmyadmin
+    ports:
+      - "8083:80"
+    environment:
+      PMA_HOST: forja-db
+      PMA_USER: drupal
+      PMA_PASSWORD: drupal
+
+volumes:
+  forja-db-data:
+
+
+name: forja_sobres
+#docker-compose -f docker-compose-forja.yml up -d
