@@ -31,7 +31,7 @@ services:
     image: phpmyadmin/phpmyadmin
     container_name: forja-phpmyadmin
     ports:
-      - "8083:80"
+      - "8081:80"
     environment:
       PMA_HOST: forja-db
       PMA_USER: drupal
